@@ -1,6 +1,6 @@
 import java.util.HashMap;
 
-public class Transitions {
+public class Transition {
     private HashMap<String, HashMap<String, String>> transitionTable = new HashMap<>();
 
     public void set(String startState, String alphabet, String goalState) {
@@ -8,7 +8,14 @@ public class Transitions {
         transitionTable.get(startState).put(alphabet, goalState);
     }
 
-    public String getNextState(String startState, String alphabet) {
-        return transitionTable.get(startState).get(alphabet);
+    public String run(String state, String alphabet) {
+        return transitionTable.get(state).get(alphabet);
+    }
+
+    @Override
+    public String toString() {
+        return "Transition{" +
+                "transitionTable=" + transitionTable +
+                '}';
     }
 }
