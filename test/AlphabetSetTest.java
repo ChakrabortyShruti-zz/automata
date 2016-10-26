@@ -13,24 +13,16 @@ public class AlphabetSetTest {
         characterSet[1] = "1";
         alphabets = new AlphabetSet(characterSet);
     }
+
     @Test
     public void when_given_an_invalid_string_should_return_false() throws Exception {
-
-        String[] inputString = {"a"};
+        String inputString = "a";
         Assert.assertEquals(false, alphabets.isValidAlphabet(inputString));
     }
 
     @Test
     public void when_given_a_valid_string_should_return_true() throws Exception {
-
-        String[] inputString = {"1"};
+        String inputString = "1";
         Assert.assertEquals(true, alphabets.isValidAlphabet(inputString));
-    }
-
-    @Test
-    public void when_given_a_set_of_string_should_say_whether_it_is_valid_or_not() throws Exception {
-
-        String[] inputString = {"1", "1", "1", "a"};
-        Assert.assertEquals(false, alphabets.isValidAlphabet(inputString));
     }
 }

@@ -1,6 +1,7 @@
 import com.google.gson.*;
 import org.junit.Assert;
-import org.junit.Test;
+
+import java.io.FileReader;
 
 public class JSONParser {
     public void parse() throws Exception {
@@ -9,7 +10,6 @@ public class JSONParser {
         Gson gson = new Gson();
         InputModel parseJson = gson.fromJson(jsonInput, InputModel.class);
         DFA machine = DFA.createMachine(parseJson.getTuple());
-        System.out.println(parseJson.getTuple().getDelta());
         CheckFailCases(parseJson.getFailCases(), machine);
         CheckPassCases(parseJson.getPassCases(), machine);
     }
@@ -22,7 +22,6 @@ public class JSONParser {
 
     private void CheckPassCases(String[] PassCases, DFA machine) {
         for (String cases : PassCases) {
-            System.out.println(machine.canAccept(cases));
             Assert.assertEquals(true, machine.canAccept(cases));
         }
     }

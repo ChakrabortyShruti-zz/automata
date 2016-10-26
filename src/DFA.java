@@ -11,7 +11,7 @@ public class DFA {
         return new DFA(dfa.getStates(), new AlphabetSet(dfa.getAlphabets()), new Delta(dfa.getDelta()), dfa.getfinalStates(), dfa.getStartState());
     }
 
-    private DFA(String[] states, AlphabetSet alphabets, Delta delta, String[] final_states, String start_state) {
+    public DFA(String[] states, AlphabetSet alphabets, Delta delta, String[] final_states, String start_state) {
         this.states = states;
         this.alphabets = alphabets;
         this.delta = delta;
@@ -20,9 +20,11 @@ public class DFA {
     }
 
     public boolean canAccept(String inputString) {
+
         String[] inputAlphabets = inputString.split("");
-        if (!alphabets.isValidAlphabet(inputAlphabets))
+        if (!alphabets.isValidAlphabet(inputString)) {
             return false;
+        }
         String presentState = start_state;
         for (String alphabet : inputAlphabets) {
             presentState = delta.getNextState(presentState, alphabet);

@@ -8,8 +8,8 @@ public class Transition {
         transitionTable.get(startState).put(alphabet, goalState);
     }
 
-    public String run(String state, String alphabet) {
-        return transitionTable.get(state).get(alphabet);
+    public HashMap getTransitons() {
+        return transitionTable;
     }
 
     @Override

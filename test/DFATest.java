@@ -1,3 +1,4 @@
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -16,13 +17,14 @@ public class DFATest {
     //All strings whose decimal representation is a power of two.
     @Test
     public void should_generate_dfa_for_string_whose_decimal_representation_is_power_of_two() throws Exception {
-//        Delta delta = new Delta(t);
-//        delta.set("q1", "1", "q2");
-//        delta.set("q1", "0", "q1");
-//        delta.set("q2", "1", "q3");
-//        delta.set("q2", "0", "q2");
-//        delta.set("q3", "1", "q3");
-//        delta.set("q3", "0", "q3");
+        Transition t = new Transition();
+        t.set("q1", "1", "q2");
+        t.set("q1", "0", "q1");
+        t.set("q2", "1", "q3");
+        t.set("q2", "0", "q2");
+        t.set("q3", "1", "q3");
+        t.set("q3", "0", "q3");
+        Delta delta = new Delta(t.getTransitons());
 
         String[] states = new String[3];
         states[0] = "q1"; //initial state
@@ -34,35 +36,35 @@ public class DFATest {
 
         String initialState = new String("q1");
 
-//        DFA dfa = new DFA(states, alphabets, delta, finalState, initialState);
-//
+        DFA dfa = new DFA(states, alphabets, delta, finalState, initialState);
 //        Assert.assertEquals(false, dfa.canAccept("a"));
-//        Assert.assertEquals(true, dfa.canAccept("1"));
-//        Assert.assertEquals(true, dfa.canAccept("10"));
-//        Assert.assertEquals(true, dfa.canAccept("100"));
-//        Assert.assertEquals(true, dfa.canAccept("1000"));
+        Assert.assertEquals(true, dfa.canAccept("1"));
+        Assert.assertEquals(true, dfa.canAccept("10"));
+        Assert.assertEquals(true, dfa.canAccept("100"));
+        Assert.assertEquals(true, dfa.canAccept("1000"));
 //
-//        Assert.assertEquals(false, dfa.canAccept("0"));
-//        Assert.assertEquals(false, dfa.canAccept("1001"));
-//        Assert.assertEquals(false, dfa.canAccept("0111"));
+        Assert.assertEquals(false, dfa.canAccept("0"));
+        Assert.assertEquals(false, dfa.canAccept("1001"));
+        Assert.assertEquals(false, dfa.canAccept("0111"));
     }
 
     // All strings that begin with 1 and contain the string 001
     @Test
     public void should_generate_dfa_for_string_that_begin_with_one_and_contain_string_001() {
-//        Delta delta = new Delta(t);
-//        delta.set("q1", "1", "q2");
-//        delta.set("q1", "0", "q6");
-//        delta.set("q2", "1", "q2");
-//        delta.set("q2", "0", "q3");
-//        delta.set("q3", "1", "q3");
-//        delta.set("q3", "0", "q4");
-//        delta.set("q4", "1", "q5");
-//        delta.set("q4", "0", "q4");
-//        delta.set("q5", "1", "q5");
-//        delta.set("q5", "0", "q5");
-//        delta.set("q6", "1", "q6");
-//        delta.set("q6", "0", "q6");
+        Transition t = new Transition();
+        t.set("q1", "1", "q2");
+        t.set("q1", "0", "q6");
+        t.set("q2", "1", "q2");
+        t.set("q2", "0", "q3");
+        t.set("q3", "1", "q3");
+        t.set("q3", "0", "q4");
+        t.set("q4", "1", "q5");
+        t.set("q4", "0", "q4");
+        t.set("q5", "1", "q5");
+        t.set("q5", "0", "q5");
+        t.set("q6", "1", "q6");
+        t.set("q6", "0", "q6");
+        Delta delta = new Delta(t.getTransitons());
 
         String[] states = new String[6];
         states[0] = "q1"; //initial state
@@ -78,28 +80,29 @@ public class DFATest {
         String[] finalState = new String[1];
         finalState[0] = "q5";
 
-//        DFA dfa = new DFA(states, alphabets, delta, finalState, initialState);
-//
-//        Assert.assertEquals(true, dfa.canAccept("101001"));
-//        Assert.assertEquals(true, dfa.canAccept("1001"));
-//        Assert.assertEquals(false, dfa.canAccept("001"));
+        DFA dfa = new DFA(states, alphabets, delta, finalState, initialState);
+
+        Assert.assertEquals(true, dfa.canAccept("101001"));
+        Assert.assertEquals(true, dfa.canAccept("1001"));
+        Assert.assertEquals(false, dfa.canAccept("001"));
     }
 
 
     // All strings other than the strings "11" and "111"
     @Test
     public void should_generate_a_dfa_for_strings_other_than_string_11_and_111() throws Exception {
-//        Delta delta = new Delta(t);
-//        delta.set("q1", "1", "q2");
-//        delta.set("q1", "0", "q5");
-//        delta.set("q2", "1", "q3");
-//        delta.set("q2", "0", "q5");
-//        delta.set("q3", "1", "q4");
-//        delta.set("q3", "0", "q5");
-//        delta.set("q4", "1", "q5");
-//        delta.set("q4", "0", "q5");
-//        delta.set("q5", "1", "q5");
-//        delta.set("q5", "0", "q5");
+        Transition t = new Transition();
+        t.set("q1", "1", "q2");
+        t.set("q1", "0", "q5");
+        t.set("q2", "1", "q3");
+        t.set("q2", "0", "q5");
+        t.set("q3", "1", "q4");
+        t.set("q3", "0", "q5");
+        t.set("q4", "1", "q5");
+        t.set("q4", "0", "q5");
+        t.set("q5", "1", "q5");
+        t.set("q5", "0", "q5");
+        Delta delta = new Delta(t.getTransitons());
 
         String[] states = new String[6];
         states[0] = "q1"; //initial state
@@ -115,10 +118,10 @@ public class DFATest {
         finalState[0] = "q2";
         finalState[1] = "q5";
 
-//        DFA dfa = new DFA(states, alphabets, , finalState, initialState);
-//
-//        Assert.assertEquals(false, dfa.canAccept("a"));
-//        Assert.assertEquals(true, dfa.canAccept("100"));
-//        Assert.assertEquals(false, dfa.canAccept("111"));
+        DFA dfa = new DFA(states, alphabets, delta, finalState, initialState);
+
+        Assert.assertEquals(false, dfa.canAccept("a"));
+        Assert.assertEquals(true, dfa.canAccept("100"));
+        Assert.assertEquals(false, dfa.canAccept("111"));
     }
 }

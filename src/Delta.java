@@ -10,7 +10,6 @@ public class Delta {
 
     public String getNextState(String state, String alphabet) {
         return delta.get(state).get(alphabet);
-//        return delta.run(state,alphabet);
     }
 
     @Override
