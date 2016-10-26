@@ -10,20 +10,11 @@ public class JSONParser {
         Gson gson = new Gson();
         InputModel parseJson = gson.fromJson(jsonInput, InputModel.class);
         DFA machine = DFA.createMachine(parseJson.getTuple());
-        CheckFailCases(parseJson.getFailCases(), machine);
-        CheckPassCases(parseJson.getPassCases(), machine);
+        DFA.runAll(parseJson.getFailCases(), parseJson.getPassCases(), machine);
+//        CheckFailCases(parseJson.getFailCases(), machine);
+//        CheckPassCases(parseJson.getPassCases(), machine);
     }
 
-    private void CheckFailCases(String[] failCases, DFA machine) {
-        for (String cases : failCases) {
-            Assert.assertEquals(false, machine.canAccept(cases));
-        }
-    }
 
-    private void CheckPassCases(String[] PassCases, DFA machine) {
-        for (String cases : PassCases) {
-            Assert.assertEquals(true, machine.canAccept(cases));
-        }
-    }
 
 }

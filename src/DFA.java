@@ -1,3 +1,5 @@
+import org.junit.Assert;
+
 import java.util.Arrays;
 
 public class DFA {
@@ -43,7 +45,20 @@ public class DFA {
                 '}';
     }
 
-    public boolean runAll() {
-        return false;
+    public static void runAll(String[] failCases, String[] passCases, DFA machine) {
+        CheckFailCases(failCases, machine);
+        CheckPassCases(passCases, machine);
+    }
+
+    private static void CheckFailCases(String[] failCases, DFA machine) {
+        for (String cases : failCases) {
+            Assert.assertEquals(false, machine.canAccept(cases));
+        }
+    }
+
+    private static void CheckPassCases(String[] PassCases, DFA machine) {
+        for (String cases : PassCases) {
+            Assert.assertEquals(true, machine.canAccept(cases));
+        }
     }
 }
