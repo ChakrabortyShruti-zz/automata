@@ -1,3 +1,6 @@
+package DFA;
+
+import common.AlphabetSet;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;

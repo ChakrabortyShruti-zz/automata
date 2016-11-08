@@ -1,3 +1,5 @@
+package common;
+
 public class AlphabetSet {
     private String[] alphabets;
 
@@ -7,7 +9,7 @@ public class AlphabetSet {
 
     public boolean isValidAlphabet(String machineString) {
         boolean isValid = false;
-        String[] inputString = machineString.split("");
+//        String[] inputString = machineString.split("");
         for (String alphabet : alphabets) {
 //            for (String i : inputString) {
 //                isValid = alphabet.contains(i);
